@@ -22,6 +22,7 @@ int sg(int checker[],int i)
 int show()
 {	system("cls");
 	sleep(3);
+ 	system("color 80");
 	  	printf("\n\n\t\t\t=======================================================================================================================================\n"); 
   	printf("\n\n\t\t\tProcess\t\t|\tBurst Time\t|\tArrival Time\t|Priority\t|\tTurnaround Time\t|\tWaiting Time\t\n\n"); 
   	printf("\t\t\t=======================================================================================================================================\n\n");
@@ -113,16 +114,19 @@ int min(int time)
 int main()
 
 {
-/*	system("color 87");
+	system("color 87");
 	printf("\n\n\n\n\n\t\t\t\t==========================================\n\n"); 
 	printf("\t\t\t\t\tShrey Gupta\n\t\t\t\t\tRegd No.: 11703591\n\t\t\t\t\tLovely Professional Univesity\n");
 	printf("\n\t\t\t\t==========================================\n"); 
 	sleep(10);
-	system("cls");*/
+	system("cls");
 	int i=0,j,temp,temp1;
 		system("color 07");
+		FILE *fp; 
+	fp=fopen("time.txt","w");
 	N:	printf("enter no of processes:-");
 	scanf("%d",&p);
+	putw(p,fp);
 	if (p>10)
 	{
 		system("cls");
