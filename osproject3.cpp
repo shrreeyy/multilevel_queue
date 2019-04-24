@@ -1,7 +1,6 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<stdio.h>
-#include<limits.h>
 #include<unistd.h>
 int p;
 int burst[10],arrival[10],priority[10];
@@ -73,7 +72,7 @@ int kg(int c,int b)
 	}
 	return i;
 }
-void prioritysort()		
+void prior()		
 {
 	int i=0,j=0,k=p-1,max,temp=-1;
 	while(j<p)
@@ -124,7 +123,7 @@ int main()
 		system("color 07");
 		FILE *fp; 
 	fp=fopen("time.txt","w");
-	N:	printf("enter no of processes:-");
+	N:	printf("Enter no of processes:-");
 	scanf("%d",&p);
 	putw(p,fp);
 	if (p>10)
@@ -144,29 +143,32 @@ int main()
 	}
 	for(i=0;i<p;i++)
 	{
-		printf("enter burst time of process %d :-",i);
+		printf("\t  Process[%d]\n",i);
+		printf("\t=================\n");
+		printf("enter burst time :",i);
 		scanf("%d",&burst[i]);
 		fk[i]=burst[i];
-		I:	printf("enter arrival time of process %d :-",i);
+		I:	printf("enter arrival time :",i);
 		scanf("%d",&arrival[i]);
 		if (arrival[i]<0)
 		{
 			printf("Wrong Entry\n");
 			goto I;
 		}	
-		Z: printf("enter priority of process %d :-",i);
+		Z: printf("enter priority :",i);
 		scanf("%d",&priority[i]);
 		if (priority[i]<0)
 		{
 			printf("Wrong Entry\n");
 			goto Z;
-		}	
+		}
+		 printf("\n");
 	}
 	int timeline=0;
 	int remaining = p;
 	int check[10];
 	int k=0;
-	prioritysort();
+	prior();
 	int index;
 
 	for(i=0;i<p;i++)
